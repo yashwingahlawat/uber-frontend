@@ -23,7 +23,7 @@ const CaptainSignup = () => {
       <div>
       <img className='w-16 mb-10' src="https://www.svgrepo.com/show/505031/uber-driver.svg" alt="" />
         <form onSubmit={submiHandler}>
-          <h3 className='text-lg font-medium mb-2'>What's your name?</h3>
+          <h3 className='text-lg font-medium mb-2'>What's our Captain's name?</h3>
           <div className='flex gap-2'>
             <input 
             value={firstname}
@@ -38,7 +38,7 @@ const CaptainSignup = () => {
             required type='text' 
             placeholder='Last name' />
           </div>
-          <h3 className='text-lg font-medium mb-2'>What's your email?</h3>
+          <h3 className='text-lg font-medium mb-2'>What's our Captain's email?</h3>
           <input 
            value={email}
             onChange={(e)=>setEmail(e.target.value)}
