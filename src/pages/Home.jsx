@@ -1,17 +1,71 @@
-// Home.js
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState,useRef } from 'react'
+import {useGSAP} from '@gsap/react'
+import gsap from 'gsap'
+import 'remixicon/fonts/remixicon.css'
+import LocationSearchPanel from '../components/LocationSearchPanel'
 const Home = () => {
+  const [pickUp,setPickUp]=useState("")
+  const [destination,setDestination]=useState("")
+  const [panelOpen, setPanelOpen] = useState(false)
+  const panelRef = useRef(null)
+  const panelCloseRef = useRef(null)
+  const submitHandler=(e)=>{
+    e.preventDefault()
+  }
+  useGSAP(()=>{
+    if(panelOpen){
+      gsap.to(panelRef.current,{
+        height:'70%'
+      })
+      gsap.to(panelCloseRef.current,{
+        opacity:1
+      })
+    }
+    else{
+      gsap.to(panelRef.current,{
+        height:'0%'
+      })
+      gsap.to(panelCloseRef.current,{
+        opacity:0
+      })
+    }
+  },[panelOpen])
   return (
-    <div className='bg-cover bg-[url(https://images.unsplash.com/photo-1538563188159-070c4db2bc65?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHRyYWZmaWMlMjBsaWdodHxlbnwwfHwwfHx8MA%3D%3D)] h-screen pt-8 flex justify-between flex-col w-full'>
-      <img className='w-14 ml-8' src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Uber_logo_2018.svg/2560px-Uber_logo_2018.svg.png
-      " alt="" />
-      <div className='bg-white px-4 py-4 pb-7'>
-        <h2 className='text-3xl font-bold'>Get Started with Uber</h2>
-        <Link to={'/login'} className='w-full flex justify-center py-3 bg-black rounded text-white mt-5'>Continue</Link>
+    <div className='relative h-screen'>
+      <img className='w-16 absolute left-5 top-5' src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Uber_logo_2018.svg/2560px-Uber_logo_2018.svg.png' alt=''/>
+      <div className='h-screen w-screen'>
+        {/* Image for temporary use */}
+        <img className='h-full w-full object-cover' src="https://miro.medium.com/v2/resize:fit:1400/format:webp/0*gwMx05pqII5hbfmX.gif" alt="" />
+      </div>
+      <div className='flex flex-col justify-end h-screen top-0 absolute w-full'>
+        <div className='bg-white h-[30%] p-6 relative'>
+          <h5 
+          ref={panelCloseRef}
+          onClick={e=>setPanelOpen(false)}
+          className='absolute right-2 top-3 text-2xl opacity-0'>
+            <i className="ri-arrow-down-wide-line"></i>
+          </h5>
+          <h4 className='text-3xl font-semibold'>Find a trip</h4>
+          <form onSubmit={submitHandler}>
+            <div className="line absolute h-16 w-1 top-[47%] bg-gray-900 rounded-full left-10"></div>
+            <input
+            value={pickUp}
+            onClick={e=>setPanelOpen(true)}
+            onChange={e=>setPickUp(e.target.value)}
+             className='bg-[#eee] px-12 py-2 text-lg rounded-lg w-full mt-5' type="text" placeholder='Add a pick-up location'/>
+            <input
+            value={destination}
+            onClick={e=>setPanelOpen(true)}
+            onChange={e=>setDestination(e.target.value)}
+             className='bg-[#eee] px-12 py-2 text-lg rounded-lg w-full mt-3' type="text" placeholder='Enter your Destination'/>
+          </form>
+        </div>
+        <div ref={panelRef} className='bg-white h-0'>
+          <LocationSearchPanel/>
+        </div>
       </div>
     </div>
   )
 }
 
-export default Home;
+export default Home
