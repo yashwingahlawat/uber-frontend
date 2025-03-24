@@ -15,7 +15,8 @@ const Home = () => {
   useGSAP(()=>{
     if(panelOpen){
       gsap.to(panelRef.current,{
-        height:'70%'
+        height:'70%',
+        padding:'20'
       })
       gsap.to(panelCloseRef.current,{
         opacity:1
@@ -23,7 +24,8 @@ const Home = () => {
     }
     else{
       gsap.to(panelRef.current,{
-        height:'0%'
+        height:'0%',
+        padding:'0'
       })
       gsap.to(panelCloseRef.current,{
         opacity:0
@@ -31,7 +33,7 @@ const Home = () => {
     }
   },[panelOpen])
   return (
-    <div className='relative h-screen'>
+    <div className='relative h-screen overflow-hidden'>
       <img className='w-16 absolute left-5 top-5' src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Uber_logo_2018.svg/2560px-Uber_logo_2018.svg.png' alt=''/>
       <div className='h-screen w-screen'>
         {/* Image for temporary use */}
@@ -62,6 +64,17 @@ const Home = () => {
         </div>
         <div ref={panelRef} className='bg-white h-0'>
           <LocationSearchPanel/>
+        </div>
+      </div>
+      <div className='fixed z-10 bottom-0 p-5'>
+        <div className='flex items-center justify-between bg-white'>
+          <img className='h-20' src="https://www.pngplay.com/wp-content/uploads/8/Uber-PNG-Photos.png" alt="" />
+          <div>
+            <h4>UberGo <span><i className="ri-user-3-fill"></i>4</span></h4>
+            <h5>2 mins away</h5>
+            <p>Affordable, compact rides</p>
+          </div>
+          <h2>₹193.20</h2>
         </div>
       </div>
     </div>
