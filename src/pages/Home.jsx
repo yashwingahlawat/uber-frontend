@@ -66,15 +66,34 @@ const Home = () => {
           <LocationSearchPanel/>
         </div>
       </div>
-      <div className='fixed z-10 bottom-0 p-5'>
-        <div className='flex items-center justify-between bg-white'>
-          <img className='h-20' src="https://www.pngplay.com/wp-content/uploads/8/Uber-PNG-Photos.png" alt="" />
-          <div>
-            <h4>UberGo <span><i className="ri-user-3-fill"></i>4</span></h4>
-            <h5>2 mins away</h5>
-            <p>Affordable, compact rides</p>
+      <div className='w-full fixed z-10 bottom-0 px-3 py-6 bg-white'>
+        <h3 className='text-2xl font-semibold mb-5'>Choose a Vehicle</h3>
+        <div className='w-full border-2 border-black rounded-xl flex items-center justify-between p-3 mb-3'>
+          <img className='h-12' src="https://www.pngplay.com/wp-content/uploads/8/Uber-PNG-Photos.png" alt="" />
+          <div className='w-1/2'>
+            <h4 className='font-medium text-base'>UberGo <span><i className="ri-user-3-fill"></i>4</span></h4>
+            <h5 className='font-medium text-sm'>2 mins away</h5>
+            <p className='font-normal text-xs text-gray-600'>Affordable, compact rides</p>
           </div>
-          <h2>₹193.20</h2>
+          <h2 className='text-xl font-semibold'>₹193.20</h2>
+        </div>
+        <div className='w-full border-2 border-black rounded-xl flex items-center justify-between p-3 mb-3'>
+          <img className='h-12' src="https://www.pngplay.com/wp-content/uploads/8/Uber-PNG-Photos.png" alt="" />
+          <div className='w-1/2'>
+            <h4 className='font-medium text-base'>UberGo <span><i className="ri-user-3-fill"></i>4</span></h4>
+            <h5 className='font-medium text-sm'>2 mins away</h5>
+            <p className='font-normal text-xs text-gray-600'>Affordable, compact rides</p>
+          </div>
+          <h2 className='text-xl font-semibold'>₹193.20</h2>
+        </div>
+        <div className='w-full border-2 border-black rounded-xl flex items-center justify-between p-3 mb-3'>
+          <img className='h-12' src="https://www.pngplay.com/wp-content/uploads/8/Uber-PNG-Photos.png" alt="" />
+          <div className='w-1/2'>
+            <h4 className='font-medium text-base'>UberGo <span><i className="ri-user-3-fill"></i>4</span></h4>
+            <h5 className='font-medium text-sm'>2 mins away</h5>
+            <p className='font-normal text-xs text-gray-600'>Affordable, compact rides</p>
+          </div>
+          <h2 className='text-xl font-semibold'>₹193.20</h2>
         </div>
       </div>
     </div>
