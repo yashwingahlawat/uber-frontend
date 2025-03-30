@@ -1,12 +1,18 @@
 import React from 'react'
 
-const LocationSearchPanel = () => {
+const LocationSearchPanel = ({setPanelOpen,setVehiclePanelOpen}) => {
   const locations=["24B, Near Kapoor's Cafe, Coding School, Bhopal","22B, Near Malhotra's Cafe, Coding School, Bhopal"]
   return (
     <div>
       {
-        locations.map(val=>
-          <div className='items-start gap-4 p-3 border-2 border-gray-50 rounded-xl active:border-black flex justify-start my-2'>
+        locations.map((val,ind)=>
+          <div 
+          key={ind}
+          onClick={()=>{
+            setVehiclePanelOpen(true)
+            setPanelOpen(false)
+          }}
+            className='items-start gap-4 p-3 border-2 border-gray-50 rounded-xl active:border-black flex justify-start my-2'>
         <h2 className='bg-[#eee] h-10 flex justify-center items-center w-10 rounded-full'><i className="ri-map-pin-fill"></i></h2>
         <h4 className='font-medium'>{val}</h4>
       </div>

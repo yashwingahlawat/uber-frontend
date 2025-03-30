@@ -11,22 +11,22 @@ const UserProtectWrapper = ({children}) => {
     const {user,setUser}=useContext(UserDataContext)
     useEffect(()=>{
         if(!token)navigate('/login')
+        axios.get(`${import.meta.env.VITE_BASE_URL}/users/profile`,{
+            headers:{
+                Authorization:`Bearer ${token}`
+            }
+        })
+        .then(response=>{
+            if(response.status===200){
+                setIsLoading(false)
+                setUser(response.data.user)
+            }
+        })
+        .catch(err=>{
+            localStorage.removeItem('token')
+            navigate('/login')
+        })
     },[token])
-    axios.get(`${import.meta.env.VITE_BASE_URL}/users/profile`,{
-        headers:{
-            Authorization:`Bearer ${token}`
-        }
-    })
-    .then(response=>{
-        if(response.status===200){
-            setIsLoading(false)
-            setUser(response.data.user)
-        }
-    })
-    .catch(err=>{
-        localStorage.removeItem('token')
-        navigate('/login')
-    })
     if(isLoading){
         return <div>Loading...</div>
     }
