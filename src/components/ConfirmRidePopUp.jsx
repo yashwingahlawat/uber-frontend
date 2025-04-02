@@ -1,16 +1,17 @@
 import React from 'react'
 import { val } from '../constants/UserImage'
-const ConfirmRidePopUp = ({setConfirmRidePopUpPanel,setRidePopUpPanel}) => {
+import { Link } from 'react-router-dom'
+const ConfirmRidePopUp = ({setConfirmRidePopUpPanel}) => {
   return (
     <div>
       <h5
         onClick={() => {
-          setRidePopUpPanel(false)
+          setConfirmRidePopUpPanel(false)
         }}
         className='p-1 text-center absolute top-0 w-[93%]'>
         <i className="text-3xl ri-arrow-down-wide-line"></i>
       </h5>
-      <h3 className='text-2xl font-semibold mb-5'>New Ride Available!</h3>
+      <h3 className='text-2xl font-semibold mb-5'>Confirm this ride to Start</h3>
       <div className='flex items-center justify-between mb-3 mt-3 bg-gray-100 p-3 rounded-lg'>
         <div className='flex items-center gap-3'>
           <img className='h-10 w-10 rounded-full object-cover' src={val} alt="" />
@@ -42,16 +43,17 @@ const ConfirmRidePopUp = ({setConfirmRidePopUpPanel,setRidePopUpPanel}) => {
             </div>
           </div>
         </div>
-        <button
+        <Link
+          to='/captain-riding'
           onClick={() => {
 
           }}
-          className='w-full mt-5 bg-green-600 text-white font-semibold p-2 rounded-lg'>Confirm</button>
+          className='flex items-center justify-center w-full mt-5 bg-green-600 text-white font-semibold p-2 rounded-lg'>Confirm</Link>
         <button
           onClick={() => {
-            setRidePopUpPanel(false)
+            setConfirmRidePopUpPanel(false)
           }}
-          className='w-full mt-1 bg-gray-300 text-gray-700 font-semibold p-2 rounded-lg'>Ignore</button>
+          className='w-full mt-1 bg-red-500 text-white font-semibold p-2 rounded-lg'>Cancel</button>
       </div>
     </div>
   )
