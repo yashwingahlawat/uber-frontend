@@ -1,11 +1,11 @@
 import React from 'react'
 import { val } from '../constants/UserImage'
 
-const RidePopUp = ({setRidePopUpPanel,setConfirmRidePopUpPanel}) => {
+const RidePopUp = ({ setRidePopUpPanel, setConfirmRidePopUpPanel }) => {
     return (
         <div>
             <h5
-                onClick={()=>{
+                onClick={() => {
                     setRidePopUpPanel(false)
                 }}
                 className='p-1 text-center absolute top-0 w-[93%]'>
@@ -43,17 +43,21 @@ const RidePopUp = ({setRidePopUpPanel,setConfirmRidePopUpPanel}) => {
                         </div>
                     </div>
                 </div>
-                <button
-                    onClick={() => {
-                        setConfirmRidePopUpPanel(true)
-                        setRidePopUpPanel(false)
-                    }}
-                    className='w-full mt-5 bg-green-600 text-white font-semibold p-2 rounded-lg'>Accept</button>
-                <button
-                    onClick={() => {
-                        setRidePopUpPanel(false)
-                    }}
-                    className='w-full mt-1 bg-gray-300 text-gray-700 font-semibold p-2 rounded-lg'>Ignore</button>
+                <div className='flex items-center justify-between w-full'>
+
+                    <button
+                        onClick={() => {
+                            setRidePopUpPanel(false)
+                        }}
+                        className='mt-1 bg-gray-300 text-gray-700 font-semibold p-3 px-10 rounded-lg'>Ignore</button>
+                    <button
+                        onClick={() => {
+                            setConfirmRidePopUpPanel(true)
+                            setRidePopUpPanel(false)
+                        }}
+                        className='mt-5 bg-green-600 text-white font-semibold p-3 px-10 rounded-lg'>Accept</button>
+                </div>
+
             </div>
         </div>
     )
