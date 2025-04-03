@@ -13,9 +13,12 @@ const CaptainRiding = () => {
       <div className='h-4/5'>
         <img className='h-full w-full object-cover' src="https://miro.medium.com/v2/resize:fit:1400/format:webp/0*gwMx05pqII5hbfmX.gif" alt="" />
       </div>
-      <div className='h-1/5 p-6 bg-yellow-400 flex items-center justify-between'>
+      <div className='h-1/5 p-6 bg-yellow-400 flex items-center justify-between relative'>
+        <h5 className='p-1 text-center absolute top-0 w-[93%]'>
+          <i className="text-3xl ri-arrow-up-wide-line"></i>
+        </h5>
         <h4 className='text-xl font-semibold'>4 KM away</h4>
-        <button className='mt-5 bg-green-600 text-white font-semibold p-3 px-10 rounded-lg'>Accept</button>
+        <button className='bg-green-600 text-white font-semibold p-3 px-10 rounded-lg'>Complete Ride</button>
       </div>
     </div>
   )
